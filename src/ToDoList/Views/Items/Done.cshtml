@@ -1,0 +1,23 @@
+﻿@model ToDoList.Models.Item
+
+<html>
+<head>
+    <title>To Do List - Completed</title>
+</head>
+<body>
+    <h2>Congratulations</h2>
+    <hr />
+    <h4>You completed this task: @Html.DisplayFor(model => model.Description)</h4>
+
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(model => model.ItemId)
+
+        @Html.LabelFor(model => model.Done)
+        @Html.EditorFor(model => model.Done)
+
+        <input type="submit" value="Complete" />
+    }
+    <p>@Html.ActionLink("Back to list", "Index")</p>
+</body>
+</html>
